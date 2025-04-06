@@ -180,3 +180,42 @@ footer {
         padding-top: 112px;
     }
 }
+/* ========== Aside Section Design for Desktop Only ========== */
+aside {
+    flex: 1;
+    background: #55a6f7;
+    padding: 1rem;
+    border: 1px solid #aaa;
+    margin-left: 1rem;
+    height: 100%;
+}
+
+aside h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+aside section {
+    background: #e0e0e0;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+}
+
+aside section p {
+    font-style: italic;
+    margin: 0;
+}
+
+/* Hide Aside on Mobile */
+@media (max-width: 768px) {
+    aside {
+        display: none;
+    }
+}

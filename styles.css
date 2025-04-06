@@ -17,16 +17,66 @@ body {
     flex-direction: column;
 }
 
-/* Header, Nav, Footer */
-header, footer {
-    background-color: #d1dce6;
-    padding: 1rem;
-}
-
+/* ===================== CSS Feature 1: Flexbox Layout ===================== */
+/* Used for layout structure: body, header, container, and main */
 .header-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin: 1rem auto;
+    gap: 1rem;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+main {
+    display: flex;
+    flex: 3;
+    background: #b0bec5;
+    padding: 30px;
+    min-height: 400px;
+}
+
+/* ===================== CSS Feature 2: CSS Grid Layout ===================== */
+/* Used for article layout inside .articles */
+.articles {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* ===================== CSS Feature 4: Box Shadow & Border Radius ===================== */
+/* Enhances visual appeal of article cards */
+article {
+    background: #e3f2fd;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+article header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+article footer {
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Header, Nav, Footer */
+header, footer {
+    background-color: #d1dce6;
+    padding: 1rem;
 }
 
 header h1 {
@@ -63,70 +113,8 @@ nav a {
     display: none;
 }
 
-/* Container */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 960px;
-    margin: 1rem auto;
-    gap: 1rem;
-    padding: 0 1rem;
-    flex: 1;
-}
-
-/* Main content area */
-main {
-    display: flex;
-    flex: 3;
-    background: #b0bec5;
-    padding: 30px;
-    min-height: 400px;
-}
-
-/* Articles */
-.articles {
-    flex: 2;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-article {
-    background: #e3f2fd;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-article header {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-article footer {
-    margin-top: 1rem;
-    font-style: italic;
-}
-
-/* Aside */
-aside {
-    flex: 1;
-    background: #55a6f7;
-    padding: 1rem;
-    border: 1px solid #aaa;
-    margin-left: 1rem;
-    height: 100%;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-}
-
-/* Mobile layout */
+/* ===================== CSS Feature 3: Media Queries ===================== */
+/* Adjusts layout based on screen width */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -155,6 +143,11 @@ footer {
         gap: 0.5rem;
         display: none;
     }
+
+    /* Hide Aside on Mobile */
+    aside {
+        display: none;
+    }
 }
 
 @media (min-width: 769px) {
@@ -180,6 +173,7 @@ footer {
         padding-top: 112px;
     }
 }
+
 /* ========== Aside Section Design for Desktop Only ========== */
 aside {
     flex: 1;
@@ -213,9 +207,9 @@ aside section p {
     margin: 0;
 }
 
-/* Hide Aside on Mobile */
-@media (max-width: 768px) {
-    aside {
-        display: none;
-    }
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
 }

@@ -1,3 +1,4 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,16 +8,31 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-header, nav, footer {
+/* Header, Nav, Footer */
+header, footer {
     background-color: #d1dce6;
     padding: 1rem;
-    text-align: left;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
     font-size: 2rem;
+}
+
+/* Navigation */
+nav {
+    background-color: #d1dce6;
+    padding: 0 1rem 1rem 1rem;
 }
 
 nav ul {
@@ -32,6 +48,18 @@ nav a {
     font-weight: bold;
 }
 
+/* Hamburger menu icon (visual only) */
+.menu {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+/* Container */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -39,9 +67,10 @@ nav a {
     margin: 1rem auto;
     gap: 1rem;
     padding: 0 1rem;
+    flex: 1;
 }
 
-/* Main */
+/* Main content area */
 main {
     display: flex;
     flex: 3;
@@ -50,6 +79,7 @@ main {
     min-height: 400px;
 }
 
+/* Articles */
 .articles {
     flex: 2;
     display: grid;
@@ -58,12 +88,24 @@ main {
 }
 
 article {
-    background: #55a6f7;
+    background: #e3f2fd;
     padding: 1rem;
     border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Aside section */
+article header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+article footer {
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Aside */
 aside {
     flex: 1;
     background: #55a6f7;
@@ -80,9 +122,13 @@ footer {
     margin-top: 2rem;
 }
 
-/* Mobile */
+/* Mobile layout */
 @media (max-width: 768px) {
     .container {
+        flex-direction: column;
+    }
+
+    main {
         flex-direction: column;
     }
 
@@ -90,33 +136,19 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
+    aside {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 1rem;
     }
 
     .menu {
         display: block;
     }
 
-    .nav-links {
-        display: none;
+    nav ul {
         flex-direction: column;
-        background: #ccc;
-        position: absolute;
-        top: 3.5rem;
-        right: 0;
-        width: 100%;
-        text-align: right;
-        padding: 1rem;
-    }
-
-    main {
-        flex-direction: column;
-    }
-
-    aside {
-        margin-left: 0;
-        width: 100%;
+        gap: 0.5rem;
+        display: none; /* Hide nav links visually for now */
     }
 }
